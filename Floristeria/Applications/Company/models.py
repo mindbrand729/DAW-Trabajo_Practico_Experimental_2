@@ -9,6 +9,3 @@ class Company(models.Model):
     founding_company = models.PositiveIntegerField(blank=False, null=False)
     ruc_company = models.CharField(max_length=13, unique=True, blank=False, null=False)
     imagen_company = models.ImageField(upload_to='empresas/', blank=True, null=True)
-
-    def __str__(self):
-        return self.name_company
