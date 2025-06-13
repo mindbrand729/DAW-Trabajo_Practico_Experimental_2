@@ -88,6 +88,14 @@ Antes de ejecutar el proyecto:
         Host: localhost
         Puerto: 5432
 
+    Crearla desde SQL Shell (psql):
+
+        CREATE DATABASE practicatpe2;
+        CREATE USER practicausr25;
+        \c practicatpe2
+        ALTER ROLE practicausr25 WITH PASSWORD 'practic35';
+        GRANT ALL ON SCHEMA public TO practicausr25;
+
 # Verificar que el settings.py tenga los datos correctos
 En settings.py, la configuración de base de datos debe verse así:
 
@@ -106,9 +114,5 @@ En settings.py, la configuración de base de datos debe verse así:
 Después de tener todo listo:
 
     python manage.py makemigrations
-
-
     python manage.py migrate
-
-    
     python manage.py runserver
