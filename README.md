@@ -27,7 +27,7 @@ Opción 3: Clonación con Git (recomendado):
 
 En Windows abre la terminal (PowerShell, CMD o terminal de VS Code) y ejecute:
 
-    git clone https://github.com/mindbrand729/DAW-Trabajo_Practico_Experimental_1.git
+    git clone https://github.com/mindbrand729/DAW-Trabajo_Practico_Experimental_2.git
 
 # Crear y activar el entorno virtual
 Crear el entorno virtual
@@ -107,6 +107,8 @@ Después de tener todo listo:
 
     python manage.py makemigrations
 
+
     python manage.py migrate
+
     
     python manage.py runserver
