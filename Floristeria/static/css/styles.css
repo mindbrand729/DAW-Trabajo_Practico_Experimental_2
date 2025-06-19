@@ -14,7 +14,6 @@
 }
 
 body {
-    height: 145vh;
     position: relative;
     background-color: #FFF;
     background-position: center center;
@@ -41,7 +40,6 @@ h1 {
     margin-bottom: 30px;
     color: #333;
     text-transform: uppercase;
-    background: linear-gradient(135deg, var(--color-secondary), #ffcb80);
     padding: 15px;
     border-radius: 10px;
     font-size: 28px;
@@ -49,25 +47,10 @@ h1 {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 0px 0px 0px;
-}
-
-.title_mv {
-  text-align: center;
-  font-style: italic;
-  font-family: 'Arial', sans-serif;
-  font-size: 4rem;
-  padding: 10px 0px;
-}
-
-.title_mv .car {
-  color: red;
-}
-
-.title_mv .epair {
-  color: blue;
+.logo img,
+.box figure img {
+    width: 130px;
+    height: auto;
+    margin: 0px;
+    mix-blend-mode: multiply;
 }
