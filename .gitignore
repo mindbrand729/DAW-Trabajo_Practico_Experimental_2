@@ -44,4 +44,3 @@ htmlcov/
 *.swp
 
 media/*
-!media/.gitkeep
