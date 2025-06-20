@@ -43,5 +43,5 @@ htmlcov/
 *.bak
 *.swp
 
-media/*
-!media/.gitkeep
+Floristeria/media/*
+!Floristeria/media/.gitkeep
