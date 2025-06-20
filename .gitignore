@@ -43,5 +43,5 @@ htmlcov/
 *.bak
 *.swp
 
-media/*/
+media/*
 !media/.gitkeep
