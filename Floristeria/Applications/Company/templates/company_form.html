@@ -5,5 +5,13 @@
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
 {% block content %}
-<h1>Página Nosotros</h1>
+<h1>Ingresar Datos de la Empresa</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+
+<p><a href="{% url 'company_list' %}">Volver a Nosotros</a></p>
 {% endblock %}

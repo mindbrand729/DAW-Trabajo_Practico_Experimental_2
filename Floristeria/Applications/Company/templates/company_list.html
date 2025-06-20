@@ -6,7 +6,18 @@
 
 {% block content %}
 {% if company %}
-    <h1>Página Nosotros</h1>
+    {% with company=company.0 %}
+        <h1>Página Nosotros</h1>
+        <h2>{{ company.name_company }}</h2>
+        <p><strong>Dirección:</strong> {{ company.address_company }}</p>
+        <p><strong>Misión:</strong> {{ company.mission_company }}</p>
+        <p><strong>Visión:</strong> {{ company.vision_company }}</p>
+        <p><strong>Año de Fundación:</strong> {{ company.founding_company }}</p>
+        <p><strong>RUC:</strong> {{ company.ruc_company }}</p>
+        {% if company.imagen_company %}
+            <img src="{{ company.imagen_company.url }}" alt="Imagen de la empresa" width="300">
+        {% endif %}
+    {% endwith %}
 
 {% else %}
     <main class="container_static">
