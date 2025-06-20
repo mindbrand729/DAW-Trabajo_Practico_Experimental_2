@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Company
@@ -8,6 +8,12 @@ class CompanyListView(ListView):
     model = Company
     template_name = 'company_list.html'
     context_object_name = 'company'
+
+    def get(self, request, *args, **kwargs):
+        if Company.objects.exists():
+            first_product = Company.objects.first()
+            return redirect('company_detail', pk=first_product.pk)
+        return super().get(request, *args, **kwargs)
 
 class CompanyDetailView(DetailView):
     model = Company

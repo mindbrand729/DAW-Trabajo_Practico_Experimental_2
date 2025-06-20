@@ -5,45 +5,15 @@
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
 {% block content %}
-{% if company %}
-    {% with company=company.0 %}
-        <h1>Página Nosotros</h1>
-        <div class='container_dinamic'>
-            <div class='item_1'>
-                <h3>{{ company.name_company }}</h3>
-                <h3><strong>RUC:</strong> {{ company.ruc_company }}</h3>
-                <h3><strong>Dirección:</strong> {{ company.address_company }}</h3>
-                {% if company.imagen_company %}
-                    <img src="{{ company.imagen_company.url }}" alt="Imagen de la empresa" width="300">
-                {% endif %}
-                <p><strong>Año de Fundación:</strong> {{ company.founding_company }}</p>
+<main class="container_static">
+    <h2>No se ha ingresado información de la empresa</h2>
+    <a href="{% url 'company_create' %}">
+        <button class="btn">
+            <div class="wrapper">
+                <p class="text">Agregar</p>
+                {% include 'button.html' %}
             </div>
-            <div class='item_2'>
-                <a href="{% url 'company_update' %}">
-                    <button class="btn">
-                        <div class="wrapper">
-                            <p class="text">Modificar</p>
-                            {% include 'button.html' %}
-                        </div>
-                    </button>
-                </a>
-                <p><strong>Misión:</strong> {{ company.mission_company }}</p>
-                <p><strong>Visión:</strong> {{ company.vision_company }}</p>
-            </div>
-        </div>
-    {% endwith %}
-
-{% else %}
-    <main class="container_static">
-        <h2>No se ha ingresado información de la empresa</h2>
-        <a href="{% url 'company_create' %}">
-            <button class="btn">
-                <div class="wrapper">
-                    <p class="text">Agregar</p>
-                    {% include 'button.html' %}
-                </div>
-            </button>
-        </a>
-    </main>
-{% endif %}
+        </button>
+    </a>
+</main>
 {% endblock %}
