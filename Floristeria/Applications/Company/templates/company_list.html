@@ -8,15 +8,29 @@
 {% if company %}
     {% with company=company.0 %}
         <h1>Página Nosotros</h1>
-        <h2>{{ company.name_company }}</h2>
-        <p><strong>Dirección:</strong> {{ company.address_company }}</p>
-        <p><strong>Misión:</strong> {{ company.mission_company }}</p>
-        <p><strong>Visión:</strong> {{ company.vision_company }}</p>
-        <p><strong>Año de Fundación:</strong> {{ company.founding_company }}</p>
-        <p><strong>RUC:</strong> {{ company.ruc_company }}</p>
-        {% if company.imagen_company %}
-            <img src="{{ company.imagen_company.url }}" alt="Imagen de la empresa" width="300">
-        {% endif %}
+        <div class='container_dinamic'>
+            <div class='item_1'>
+                <h3>{{ company.name_company }}</h3>
+                <h3><strong>RUC:</strong> {{ company.ruc_company }}</h3>
+                <h3><strong>Dirección:</strong> {{ company.address_company }}</h3>
+                {% if company.imagen_company %}
+                    <img src="{{ company.imagen_company.url }}" alt="Imagen de la empresa" width="300">
+                {% endif %}
+                <p><strong>Año de Fundación:</strong> {{ company.founding_company }}</p>
+            </div>
+            <div class='item_2'>
+                <a href="{% url 'company_update' %}">
+                    <button class="btn">
+                        <div class="wrapper">
+                            <p class="text">Modificar</p>
+                            {% include 'button.html' %}
+                        </div>
+                    </button>
+                </a>
+                <p><strong>Misión:</strong> {{ company.mission_company }}</p>
+                <p><strong>Visión:</strong> {{ company.vision_company }}</p>
+            </div>
+        </div>
     {% endwith %}
 
 {% else %}
@@ -26,43 +40,7 @@
             <button class="btn">
                 <div class="wrapper">
                     <p class="text">Agregar</p>
-
-                    <div class="flower flower1">
-                        <div class="petal one"></div>
-                        <div class="petal two"></div>
-                        <div class="petal three"></div>
-                        <div class="petal four"></div>
-                    </div>
-                        <div class="flower flower2">
-                        <div class="petal one"></div>
-                        <div class="petal two"></div>
-                        <div class="petal three"></div>
-                        <div class="petal four"></div>
-                    </div>
-                        <div class="flower flower3">
-                        <div class="petal one"></div>
-                        <div class="petal two"></div>
-                        <div class="petal three"></div>
-                        <div class="petal four"></div>
-                    </div>
-                        <div class="flower flower4">
-                        <div class="petal one"></div>
-                        <div class="petal two"></div>
-                        <div class="petal three"></div>
-                        <div class="petal four"></div>
-                    </div>
-                        <div class="flower flower5">
-                        <div class="petal one"></div>
-                        <div class="petal two"></div>
-                        <div class="petal three"></div>
-                        <div class="petal four"></div>
-                    </div>
-                        <div class="flower flower6">
-                        <div class="petal one"></div>
-                        <div class="petal two"></div>
-                        <div class="petal three"></div>
-                        <div class="petal four"></div>
-                    </div>
+                    {% include 'button.html' %}
                 </div>
             </button>
         </a>
