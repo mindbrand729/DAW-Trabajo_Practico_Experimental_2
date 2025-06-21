@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+{% block title %}Página Nosotros | Floristería{% endblock %}
+
+{% block content %}
+<h1>Ingresar Datos de la Empresa</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+
+<p><a href="{% url 'company_list' %}">Volver a Nosotros</a></p>
+{% endblock %}
