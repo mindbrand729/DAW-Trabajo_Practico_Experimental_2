@@ -1,0 +1,63 @@
+.imagen-empleado {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 2px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+ /* Efecto a las tarjetas */
+.card {
+    max-width: 600px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    border: 1.5px solid #ccc;
+    border-radius: 5%;
+    padding: 0.25rem;
+    object-fit: cover;
+    background-color: #eee;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+.card img:hover {
+    transform: scale(1.10);
+ }
+
+/* Efecto de botón agregar */
+a[href="create/"] {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+a[href="create/"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.title {
+  font-size: 20px;             /* Tamaño de fuente */
+  font-weight: bold;           /* Negrita */
+  letter-spacing: 0.5px;       /* Poco espacio entre letras */
+  text-transform: capitalize;  /* Primera letra en mayúscula */
+ }
+.data {
+    font-size: 14px; 
+    line-height: 0.5;    
+    color: #333;     
+}

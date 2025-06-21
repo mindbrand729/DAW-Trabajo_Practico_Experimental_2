@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/employee.css' %}">{% endblock %}
+{% block title %}Página Principal | Floristería{% endblock %}
+
+{% block content %}
+    <h1 class=>ELIMINAR TRABAJADOR</h1>
+    
+    <div class="container mt-4 text-center ">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                {% if delemployee.imagen_employee %}
+                    <img class="imagen-empleado" src="{{ delemployee.imagen_employee.url }}" >
+                {% else %}
+                    <p>No hay imagen cargada.</p>
+                {% endif %}
+                <h3>ESTAS SEGURO DE ELIMINAR A: </h3>
+                <h3>{{ delemployee.name_employee }} {{ delemployee.surname_employee }}</h3>
+        
+        
+            <div class="d-flex justify-content-around mt-4">
+                <button type="submit" class="btn btn-success">Aceptar</button>
+                <a href="/employee" class="btn btn-danger">Cancelar</a>        
+            </div>
+        </form>
+    </div>    
+{% endblock %}
