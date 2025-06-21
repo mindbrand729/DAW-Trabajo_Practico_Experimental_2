@@ -28,3 +28,10 @@ urlpatterns = [
     path('products/', ProductsCreateView.as_view()),
     path('supplier/', SupplierCreateView.as_view()),
 ]
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('suppliers/', include('Applications.Supplier.urls')), # Incluye las URLs de tu app Supplier
+]
