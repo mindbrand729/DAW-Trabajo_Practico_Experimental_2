@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/company.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/company.css' %}">
+<link rel="stylesheet" href="{% static 'css/flower.css' %}">
+{% endblock %}
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
 {% block content %}
 <main class="container_static">
     <h2>No se ha ingresado información de la empresa</h2>
-    <a href="{% url 'company_create' %}">
-        <button class="btn">
-            <div class="wrapper">
-                <p class="text">Agregar</p>
-                {% include 'button.html' %}
-            </div>
-        </button>
-    </a>
+    <button class="btn" onclick="location.href='{% url 'company_create' %}'">
+        <div class="wrapper">
+            <p class="text">Agregar</p>
+            {% include 'button.html' %}
+        </div>
+    </button>
 </main>
 {% endblock %}
