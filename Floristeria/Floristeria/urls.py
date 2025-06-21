@@ -22,20 +22,6 @@ from django.conf import settings
 urlpatterns = [
     path('', include('Applications.home.urls')),
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-    path('company/', CompanyCreateView.as_view()),
-    path('employee/', EmployeeCreateView.as_view()),
-    path('products/', ProductsCreateView.as_view()),
-    path('supplier/', SupplierCreateView.as_view()),
-]
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('suppliers/', include('Applications.Supplier.urls')), # Incluye las URLs de tu app Supplier
-]
-=======
     path('company/', include('Applications.Company.urls')),
     path('employee/', include('Applications.Employee.urls')),
     path('products/', include('Applications.Products.urls')),
@@ -44,4 +30,3 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
->>>>>>> 67f13f0a598c9036664f6c8669c4cc71168b80e8
