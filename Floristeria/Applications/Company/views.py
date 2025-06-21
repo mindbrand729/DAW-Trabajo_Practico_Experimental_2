@@ -34,5 +34,7 @@ class CompanyUpdateView(UpdateView):
 
 class CompanyDeleteView(DeleteView):
     model = Company
-    template_name = 'company_delete.html'
-    success_url = reverse_lazy('company_list')   
+    success_url = reverse_lazy('company_list')
+    
+    def get(self, request, *args, **kwargs):
+        return redirect(self.success_url)
