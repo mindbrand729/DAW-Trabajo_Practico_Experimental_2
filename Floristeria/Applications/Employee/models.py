@@ -8,5 +8,4 @@ class Employee(models.Model):
     mail_employee = models.EmailField(blank=False, null=False)
     card_employee = models.CharField(max_length=20, unique=True, blank=False, null=False)
     code_employee = models.CharField(max_length=20, unique=True, blank=False, null=False)
-    imagen_employee = models.ImageField(upload_to='trabajadores/', blank=True, null=True)
-    employee_company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='employee')
+    imagen_employee = models.ImageField(upload_to='static/img/trabajadores/', blank=True, null=True)

@@ -1,17 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/form.css' %}">{% endblock %}
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
 {% block content %}
-<h1>Ingresar Datos de la Empresa</h1>
+{% if company.pk %}
+    <h1>Modificar Datos de la Empresa</h1>
+    <form id="delete-form" method="post" action="{% url 'company_delete' company.pk %}" style="display: none;">
+        {% csrf_token %}
+    </form>
+    <button class="btn" onclick="confirmDelete()">
+        <div class="wrapper">
+            <p class="text">Eliminar</p>
+            {% include 'button.html' %}
+        </div>
+    </button>
+{% else %}
+    <h1>Ingresar Datos de la Empresa</h1>
+{% endif %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
+<button class="btn" onclick="location.href='{% url 'company_list' %}'">
+    <div class="wrapper">
+        <p class="text">Volver</p>
+        {% include 'button.html' %}
+    </div>
+</button>
 
-<p><a href="{% url 'company_list' %}">Volver a Nosotros</a></p>
+<div class="form-container">
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-wrapper">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="name">Nombre de la compa;ia</label>
+                    <input type="text" id="name" name="name_company" required="">
+                </div>
+                <div class="form-group">
+                    <label for="address">Direcci[on] de la compa;ia</label>
+                    <input type="text" id="address" name="address_company" required="">
+                </div>
+                <div class="form-group">
+                    <label for="founding">Fundaci[on] de la compa;ia</label>
+                    <input type="number" id="founding" name="founding_company" required="">
+                </div>
+                <div class="form-group">
+                    <label for="ruc">RUC de la compa;ia</label>
+                    <input type="number" id="founding" name="ruc_company" required="">
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="textarea">Mision de la compa;ia</label>
+                    <textarea name="mission_company" id="mission" rows="10" cols="50" required=""></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="textarea">Vision de la compa;ia</label>
+                    <textarea name="vision_company" id="vision" rows="10" cols="50" required=""></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="textarea">Vision de la compa;ia</label>
+                    <div class="actions">
+                        <label for="file" class="upload-btn">
+                            Elegir archivo
+                            <input hidden type="file" name="imagen_company" id="file" accept="image/*" onchange="previewImage(event)">
+                            <img id="preview" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='form-actions'>
+            <button class="btn" type="submit">
+                <div class="wrapper">
+                    <p class="text">Guardar</p>
+                    {% include 'button.html' %}
+                </div>
+            </button>
+        </div>
+    </form>
+</div>
+{% block extra_js %}<script src="{% static 'js/form.js' %}"></script>{% endblock %}
 {% endblock %}
