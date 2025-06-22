@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/company.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/company.css' %}">
+<link rel="stylesheet" href="{% static 'css/flower.css' %}">
+{% endblock %}
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
 {% block content %}
@@ -17,14 +20,12 @@
         <p><strong>Año de Fundación:</strong> {{ company.founding_company }}</p>
     </div>
     <div class='item_2'>
-        <a href="{% url 'company_update' company.pk %}">
-            <button class="btn">
-                <div class="wrapper">
-                    <p class="text">Modificar</p>
-                    {% include 'button.html' %}
-                </div>
-            </button>
-        </a>
+        <button class="btn" onclick="location.href='{% url 'company_update' company.pk %}'">
+            <div class="wrapper">
+                <p class="text">Modificar</p>
+                {% include 'button.html' %}
+            </div>
+        </button>
         <p><strong>Misión:</strong> {{ company.mission_company }}</p>
         <p><strong>Visión:</strong> {{ company.vision_company }}</p>
     </div>

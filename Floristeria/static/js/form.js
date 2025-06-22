@@ -1,25 +1,36 @@
-function previewImage(event) {
-    const input = event.target;
-    const file = input.files[0];
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('company-form');
+    if (!form) return;
+
+    const fileInput = document.getElementById('file');
     const preview = document.getElementById('preview');
+    const errorDiv = document.getElementById('error-msg');
 
-    if (file) {
-        const reader = new FileReader();
+    const isEdit = form.dataset.isEdit === "true";
 
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        };
-
-        reader.readAsDataURL(file);
-    } else {
-        preview.src = '#';
-        preview.style.display = 'none';
+    // Previsualización de imagen
+    if (fileInput) {
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        });
     }
-}
 
-function confirmDelete() {
-    if (confirm("¿Estás seguro de que quieres eliminar esta empresa?")) {
-        document.getElementById('delete-form').submit();
-    }
-}
+    // Validación al enviar el formulario
+    form.addEventListener('submit', function(e) {
+        errorDiv.innerHTML = '';
+        if (!isEdit && (!fileInput || !fileInput.files.length)) {
+            e.preventDefault();
+            errorDiv.innerHTML = '<p>Por favor selecciona una imagen.</p>';
+        }
+    });
+});

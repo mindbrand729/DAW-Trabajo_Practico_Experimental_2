@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/form.css' %}">{% endblock %}
+{% block title %}Página Nosotros | Floristería{% endblock %}
+
+{% block content %}
+    <h1 class=>Eliminar Informacion de la compa;ia</h1>
+    <div class="container mt-4 text-center ">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class='container-delete'>
+                    <img src="{{ company.imagen_company.url }}" >
+                </div>
+                    <h3>¿Estás seguro que quieres eliminar esta empresa?</h3>
+                <h3>{{ company.name_company }}</h3>       
+            <div class="d-flex justify-content-around mt-4">
+                <button type="submit">Aceptar</button>
+                <button type="button" onclick="location.href='{% url 'company_update' company.pk %}'">Cancelar</button>    
+            </div>
+        </form>
+    </div>
+{% endblock %}
