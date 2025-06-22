@@ -9,9 +9,11 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
                 <div class='container-delete'>
-                    <img src="{{ company.imagen_company.url }}" >
+                    {% if company.imagen_company %}
+                        <img src="{{ company.imagen_company.url }}" >
+                    {% endif %}
                 </div>
-                    <h3>¿Estás seguro que quieres eliminar esta empresa?</h3>
+                <h3>¿Estás seguro que quieres eliminar esta empresa?</h3>
                 <h3>{{ company.name_company }}</h3>       
             <div class="d-flex justify-content-around mt-4">
                 <button type="submit">Aceptar</button>
