@@ -1,9 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/supplier.css' %}">{% endblock %}
 {% block title %}Página de Proveedores | Floristería{% endblock %}
 
 {% block content %}
-<h1>Página de Proveedores</h1>
+    <h1>Nuestros de Proveedores</h1>
+    <div class="add-supplier-button-container">
+        <a href="{% url 'supplier_create' %}" class="add-supplier-button">
+            <span class="plus-icon">+</span> AGREGAR PROVEEDOR
+        </a>
+    </div>
+
+    <div class="supplier-grid">
+        {% if supplier %}
+            {% for sup in supplier %}
+                <div class="supplier-card">
+                    <h2 class="supplier-name">{{ sup.name_supplier }}</h2>
+                    <p><strong>Correo:</strong> {{ sup.mail_supplier }}</p>
+                    <p><strong>Teléfono:</strong> {{ sup.phone_supplier }}</p>
+                    <p><strong>País:</strong> {{ sup.country_supplier }}</p>
+                    <div class="supplier-actions">
+                        <a href="{% url 'supplier_update' sup.pk %}" class="action-button edit-button" title="Editar">
+                            &#9998; 
+                        </a>
+                        <a href="{% url 'supplier_delete' sup.pk %}" class="action-button delete-button" title="Eliminar">
+                            &#128465; 
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay proveedores registrados aún.</p>
+        {% endif %}
+    </div>
 {% endblock %}
+

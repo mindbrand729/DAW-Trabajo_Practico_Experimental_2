@@ -8,9 +8,3 @@ class Supplier(models.Model):
     country_supplier = models.CharField(max_length=100, blank=False, null=False, verbose_name="País")
     mail_supplier = models.EmailField(blank=False, null=False, verbose_name="Correo Electrónico")
     address_supplier = models.TextField(blank=False, null=False, verbose_name="Dirección")
-    class Meta:
-        verbose_name = "Proveedor"
-        verbose_name_plural = "Proveedores"
-
-    def __str__(self):
-        return self.name_supplier
