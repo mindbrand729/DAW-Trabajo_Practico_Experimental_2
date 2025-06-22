@@ -30,39 +30,33 @@
         <div class="form-wrapper">
             <div class="form-column">
                 <div class="form-group">
-                    <label for="name">Nombre de la compa;ia</label>
-                    <input type="text" id="name" name="name_company" value="{{ company.name_company }}" required="">
-                    {{ form.name_company.errors }}
+                    <label for="name">Nombre de la Empresa</label>
+                    <input type="text" id="name" name="name_company" pattern="^(?!\d+$).{3,100}$" maxlength="100" minlength="3" value="{{ company.name_company }}" placeholder="Ej: Borcelle" required="">
                 </div>
                 <div class="form-group">
-                    <label for="address">Direcci[on] de la compa;ia</label>
-                    <input type="text" id="address" name="address_company" value="{{ company.address_company }}" required="">
-                    {{ form.address_company.errors }}
+                    <label for="address">Dirección</label>
+                    <input type="text" id="address" name="address_company" pattern="^(?!\d+$).{5,150}$" maxlength="150" minlength="5" value="{{ company.address_company }}" placeholder="Ej: Av. Atahualpa OE1-109 y 10 de Agosto, Quito - Ecuador" required="">
                 </div>
                 <div class="form-group">
-                    <label for="founding">Fundaci[on] de la compa;ia</label>
-                    <input type="number" id="founding" name="founding_company" value="{{ company.founding_company }}" required="">
-                    {{ form.founding_company.errors }}
+                    <label for="founding">Año de Fundación</label>
+                    <input type="number" id="founding" name="founding_company" min="1800" max="2025" value="{{ company.founding_company }}" placeholder="Ej: 1998" required="">
                 </div>
                 <div class="form-group">
-                    <label for="ruc">RUC de la compa;ia</label>
-                    <input type="number" id="founding" name="ruc_company" value="{{ company.ruc_company }}" required="">
-                    {{ form.ruc_company.errors }}
+                    <label for="ruc">RUC</label>
+                    <input type="text" id="ruc" name="ruc_company" pattern="\d{13}" maxlength="13" minlength="13" value="{{ company.ruc_company }}" placeholder="Ej: 1798285937001" required="" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
             </div>
             <div class="form-column">
                 <div class="form-group">
-                    <label for="textarea">Mision de la compa;ia</label>
-                    <textarea name="mission_company" id="mission" rows="10" cols="50" required="">{{ company.mission_company }}</textarea>
-                    {{ form.mission_company.errors }}
+                    <label for="textarea">Misión</label>
+                    <textarea name="mission_company" id="mission" rows="10" cols="50" pattern="^(?!\d+$).{10,500}$" placeholder="Ej: En Barcelle, nuestra misión es crear y ofrecer experiencias inolvidables a través del arte floral. Nos dedicamos a diseñar arreglos únicos y de alta calidad que transmiten emociones, celebran momentos especiales y embellecen la vida cotidiana de nuestros clientes." required="">{{ company.mission_company }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="textarea">Vision de la compa;ia</label>
-                    <textarea name="vision_company" id="vision" rows="10" cols="50" required="">{{ company.vision_company }}</textarea>
-                    {{ form.vision_company.errors }}
+                    <label for="textarea">Visión</label>
+                    <textarea name="vision_company" id="vision" rows="10" cols="50" pattern="^(?!\d+$).{10,500}$" placeholder="Ej: Ser reconocidos como la floristería líder en creatividad, calidad y servicio en la región, transformando cada flor en una experiencia única." required="">{{ company.vision_company }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="textarea">Imagen de la compa;ia</label>
+                    <label for="file">Imagen</label>
                     <div class="actions">
                         <label for="file" class="upload-btn">
                             Elegir archivo
