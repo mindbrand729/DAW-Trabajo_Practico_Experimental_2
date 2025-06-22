@@ -9,25 +9,29 @@
 
 {% block content %}
 <h1>Página Nosotros</h1>
-<main class='container_dinamic'>
+<div class='container-button'>
+    <button class="btn" onclick="location.href='{% url 'company_update' company.pk %}'">
+        <span class="wrapper">
+            <p class="text">Modificar</p>
+            {% include 'button.html' %}
+        </span>
+    </button>
+</div>
+<div class='container_dinamic'>
     <div class='item_1'>
-        <h3>{{ company.name_company }}</h3>
+        <h3><strong>{{ company.name_company }}</strong></h3>
         <h3><strong>RUC:</strong> {{ company.ruc_company }}</h3>
         <h3><strong>Dirección:</strong> {{ company.address_company }}</h3>
         {% if company.imagen_company %}
             <img src="{{ company.imagen_company.url }}" alt="Imagen de la empresa" width="300">
         {% endif %}
-        <p><strong>Año de Fundación:</strong> {{ company.founding_company }}</p>
+        <h2><strong>Año de Fundación:</strong> {{ company.founding_company }}</h2>
     </div>
     <div class='item_2'>
-        <button class="btn" onclick="location.href='{% url 'company_update' company.pk %}'">
-            <div class="wrapper">
-                <p class="text">Modificar</p>
-                {% include 'button.html' %}
-            </div>
-        </button>
-        <p><strong>Misión:</strong> {{ company.mission_company }}</p>
-        <p><strong>Visión:</strong> {{ company.vision_company }}</p>
+        <h2><strong>Misión:</strong></h2>
+        <div class='text'><p>{{ company.mission_company }}</p></div>
+        <h2><strong>Visión:</strong></h2>
+        <div class='text'><p>{{ company.vision_company }}</p></div>
     </div>
-</main>
+</div>
 {% endblock %}
