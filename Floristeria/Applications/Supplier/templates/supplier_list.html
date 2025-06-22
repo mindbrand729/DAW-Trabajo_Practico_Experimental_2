@@ -5,8 +5,7 @@
 {% block title %}Página de Proveedores | Floristería{% endblock %}
 
 {% block content %}
-<h1>Página de Proveedores</h1>
-{% endblock %}
+    <h1>Nuestros de Proveedores</h1>
     <div class="add-supplier-button-container">
         <a href="{% url 'supplier_create' %}" class="add-supplier-button">
             <span class="plus-icon">+</span> AGREGAR PROVEEDOR
@@ -35,5 +34,5 @@
             <p>No hay proveedores registrados aún.</p>
         {% endif %}
     </div>
-</div>
 {% endblock %}
+
