@@ -1,7 +1,7 @@
 /* Proveedores */
 /* Botón Agregar proveedor */
 .add-supplier-button-container {
-    margin-bottom: 40px;
+    padding: 0% 5%;
     text-align: right;
 }
 
@@ -36,6 +36,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 30px;
+    padding: 0% 5%;
 }
 
 .supplier-card {
@@ -123,7 +124,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px; 
+    max-width: 500px;
     margin: 50px auto; 
     text-align: center; 
 }
@@ -193,28 +194,6 @@
     background-color: #45a049;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
-}
-
-.back-button {
-    background-color: #9E9E9E;
-    color: white;
-}
-
-.back-button:hover {
-    background-color: #888888;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(158, 158, 158, 0.3);
-}
-
-.delete-confirm-button {
-    background-color: #F44336; /* Rojo */
-    color: white;
-}
-
-.delete-confirm-button:hover {
-    background-color: #D32F2F;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.3);
 }
 
 /* Detail View */

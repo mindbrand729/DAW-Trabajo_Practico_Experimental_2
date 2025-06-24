@@ -1,22 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/supplier.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/supplier.css' %}">
+<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
+{% endblock %}
 {% block title %}Detalle del Proveedor | Floristería{% endblock %}
 
 {% block content %}
+<h1>Detalles del Proveedor: {{ supplier.name_supplier }}</h1>
 <div class="container">
-    <h1>Detalle del Proveedor: {{ supplier.name_supplier }}</h1>
     <div class="supplier-detail-card">
         <p><strong>Nombre del Proveedor:</strong> {{ supplier.name_supplier }}</p>
         <p><strong>Teléfono:</strong> {{ supplier.phone_supplier }}</p>
         <p><strong>País:</strong> {{ supplier.country_supplier }}</p>
-        <p><strong>Correo Electrónico:</strong> {{ supplier.mail_supplier }}</p>
+        <p><strong>Descripción:</strong> {{ supplier.description_supplier }}</p>
+        <p><strong>Dirección:</strong> {{ supplier.address_supplier }}</p>
     </div>
     <div class="supplier-actions detail-actions">
-        <a href="{% url 'supplier_update' supplier.pk %}" class="action-button edit-button">Editar</a>
-        <a href="{% url 'supplier_delete' supplier.pk %}" class="action-button delete-button">Eliminar</a>
-        <a href="{% url 'supplier_list' %}" class="back-button">Volver a la lista</a>
+        <button type="button" class="button-delete" onclick="location.href='{% url 'supplier_list' %}'">
+            <span class="button__text">Volver</span>
+            <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
+        </button>
     </div>
 </div>
 {% endblock %}
