@@ -14,8 +14,8 @@
           <!-- Columna izquierda: Imagen actual -->
           <div class="col-md-4 mt-3" style="max-width: 400px;">
             <div class="form-group">
-              {% if form.instance.imagen_employee %}
-                <img src="{{ form.instance.imagen_employee.url }}" class="imagen-empleado">
+              {% if employee.imagen_employee %}
+                <img src="{{ employee.imagen_employee.url }}" class="imagen-empleado">
               {% else %}
                 <p>No hay imagen cargada.</p>
               {% endif %}
@@ -26,45 +26,45 @@
           <div class="col-md-4 justify-content-around" style=" max-width: 300px;">
             <div class="form-group mt-3">
               <label for="Nombre">Nombre: </label>
-              {{ form.name_employee }}
-              {{ form.name_employee.errors }}
+              {{ employee.name_employee }}
+              {{ employee.name_employee.errors }}
             </div>
 
             <div class="form-group">
               <label for="Apellido">Apellido:</label>
-              {{ form.surname_employee }}
-              {{ form.surname_employee.errors }}
+              {{ employee.surname_employee }}
+              {{ employee.surname_employee.errors }}
             </div>
 
             <div class="form-group">
               <label for="correo">Correo  : </label>
-              {{ form.mail_employee }}
-              {{ form.mail_employee.errors }}
+              {{ employee.mail_employee }}
+              {{ employee.mail_employee.errors }}
             </div>
 
             <div class="form-group">
               <label for="cedula">Cédula  : </label>
-              {{ form.card_employee }}
-              {{ form.card_employee.errors }}
+              {{ employee.card_employee }}
+              {{ employee.card_employee.errors }}
             </div>
 
             <div class="form-group">
               <label for="codEmployee">Código  : </label>
-              {{ form.code_employee }}
-              {{ form.code_employee.errors }}
+              {{ employee.code_employee }}
+              {{ employee.code_employee.errors }}
             </div>
 
             <div class="form-group">
                 <label for="imagenEmployee">Imagen Seleccionada : </label>
-                {{ form.imagen_employee }}
-                {{ form.imagen_employee.errors }}
+                {{ employee.imagen_employee }}
+                {{ employee.imagen_employee.errors }}
               
             </div>
           </div>
         </div>
         <div class="d-flex justify-content-around mt-4">
               <button type="submit" class="btn btn-success">Aceptar</button>
-              <a href="/employee" class="btn btn-danger">Cancelar</a>        
+              <a href="{% url 'employee_list' %}" class="btn btn-danger">Cancelar</a>        
             </div>
       </form>
     </div>    

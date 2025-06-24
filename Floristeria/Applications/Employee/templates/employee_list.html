@@ -6,7 +6,7 @@
 {% block content %}
     <h1>NUESTRO PERSONAL</h1>
     <div class="container d-flex justify-content-end mt-4">
-        <a href="create/">+ AGREGAR TRABAJADOR</a>
+        <a href="{% url 'employee_create' %}">+ AGREGAR TRABAJADOR</a>
     </div> 
     {% if employees %}
         <div class="container mt-5">
@@ -30,8 +30,8 @@
                             <div class="col-md-8 d-flex flex-column justify-content-between">
                                 <!-- Íconos en la esquina superior derecha -->
                                 <div class="icons text-right p-2" style="position: absolute; top: 0; right: 0;">
-                                    <a href="update/{{empleado.id}}/" style="margin-right: 5px;">✏️</a>
-                                    <a href="delete/{{empleado.id}}/">🗑️</a>
+                                    <a href="{% url 'employee_update' empleado.pk %}" style="margin-right: 5px;">✏️</a>
+                                    <a href="{% url 'employee_delete' empleado.pk %}">🗑️</a>
                                 </div>
 
                                 <!-- Cuerpo de la tarjeta -->

@@ -10,18 +10,18 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
-                {% if delemployee.imagen_employee %}
-                    <img class="imagen-empleado" src="{{ delemployee.imagen_employee.url }}" >
+                {% if employee.imagen_employee %}
+                    <img class="imagen-empleado" src="{{ employee.imagen_employee.url }}" >
                 {% else %}
                     <p>No hay imagen cargada.</p>
                 {% endif %}
                 <h3>ESTAS SEGURO DE ELIMINAR A: </h3>
-                <h3>{{ delemployee.name_employee }} {{ delemployee.surname_employee }}</h3>
+                <h3>{{ employee.name_employee }} {{ employee.surname_employee }}</h3>
         
         
             <div class="d-flex justify-content-around mt-4">
                 <button type="submit" class="btn btn-success">Aceptar</button>
-                <a href="/employee" class="btn btn-danger">Cancelar</a>        
+                <a href="{% url 'employee_list' %}" class="btn btn-danger">Cancelar</a>        
             </div>
         </form>
     </div>    
