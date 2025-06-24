@@ -1,38 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/supplier.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/supplier.css' %}">
+<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
+{% endblock %}
 {% block title %}Página de Proveedores | Floristería{% endblock %}
 
 {% block content %}
-    <h1>Nuestros Proveedores</h1>
-    <div class="add-supplier-button-container">
-        <a href="{% url 'supplier_create' %}" class="add-supplier-button">
-            <span class="plus-icon">+</span> AGREGAR PROVEEDOR
-        </a>
-    </div>
-
-    <div class="supplier-grid">
-        {% if supplier %}
-            {% for sup in supplier %}
-                <div class="supplier-card">
-                    <h2 class="supplier-name">{{ sup.name_supplier }}</h2>
-                    <p><strong>Correo:</strong> {{ sup.mail_supplier }}</p>
-                    <p><strong>Teléfono:</strong> {{ sup.phone_supplier }}</p>
-                    <p><strong>País:</strong> {{ sup.country_supplier }}</p>
-                    <div class="supplier-actions">
-                        <a href="{% url 'supplier_update' sup.pk %}" class="action-button edit-button" title="Editar">
-                            &#9998; 
-                        </a>
-                        <a href="{% url 'supplier_delete' sup.pk %}" class="action-button delete-button" title="Eliminar">
-                            &#128465; 
-                        </a>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <h2 class="title text-center">No hay proveedores registrados aún.</h2>
-        {% endif %}
-    </div>
+{% if supplier %}<h1>Nuestros Proveedores</h1>{% endif %}
+<div class="container-button">
+    <button type="button" class="button-delete" onclick="location.href='{% url 'supplier_create' %}'">
+        <span class="button__text">Agregar</span>
+        <span class="button__icon"><i class="fa-solid fa-plus"></i></span>
+    </button>
+</div>
+{% if supplier %}
+<div class="supplier-grid">
+    {% for sup in supplier %}
+        <div class="supplier-card">
+            <h2 class="supplier-name">{{ sup.name_supplier }}</h2>
+            <p><strong>Correo:</strong> {{ sup.mail_supplier }}</p>
+            <p><strong>Teléfono:</strong> {{ sup.phone_supplier }}</p>
+            <p><strong>País:</strong> {{ sup.country_supplier }}</p>
+            <div class="supplier-actions">
+                <a href="{% url 'supplier_detail' sup.pk %}" class="action-button delete-button" title="Editar">
+                    <i class="fa-solid fa-eye"></i>
+                </a>
+                <a href="{% url 'supplier_update' sup.pk %}" class="action-button edit-button" title="Editar">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+                <a href="{% url 'supplier_delete' sup.pk %}" class="action-button delete-button" title="Eliminar">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="container_static">
+    <h2>No hay proveedores registrados aún.</h2>
+</div>
+{% endif %}
 {% endblock %}
 
