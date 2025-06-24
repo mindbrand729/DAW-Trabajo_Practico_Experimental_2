@@ -30,32 +30,18 @@
     background-color: #eee;
     transition: transform 0.3s ease, box-shadow 0.5s ease;
 }
+
 .card img:hover {
     transform: scale(1.10);
  }
-
-/* Efecto de botón agregar */
-a[href="create/"] {
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-a[href="create/"]:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
 
 .title {
   font-size: 20px;             /* Tamaño de fuente */
   font-weight: bold;           /* Negrita */
   letter-spacing: 0.5px;       /* Poco espacio entre letras */
   text-transform: capitalize;  /* Primera letra en mayúscula */
- }
+}
+
 .data {
     font-size: 14px; 
     line-height: 0.5;    

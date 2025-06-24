@@ -79,11 +79,3 @@
     justify-content: center;
     margin-top: 20px;
 }
-
-.container-delete img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-}

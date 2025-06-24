@@ -22,7 +22,7 @@ class Employee(models.Model):
 )], blank=False, null=False)
     surname_employee = models.CharField(max_length=100, validators=[MinLengthValidator(3), RegexValidator(regex=r"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s'-]+$"
 )], blank=False, null=False)
-    mail_employee = models.EmailField(blank=False, null=False, unique=True)
-    card_employee = models.CharField(max_length=10, validators=[RegexValidator(regex=r'^\d{10}$')], unique=True, blank=False, null=False)
-    code_employee = models.CharField(max_length=10, validators=[RegexValidator(r'^[A-Z0-9\-]{4,10}$')], unique=True, blank=False, null=False)
+    mail_employee = models.EmailField(blank=False, null=False, unique=True, error_messages={'unique': "Este correo ya está registrado."})
+    card_employee = models.CharField(max_length=10, validators=[RegexValidator(regex=r'^\d{10}$')], unique=True, blank=False, null=False, error_messages={'unique': "Esta cédula ya está registrada."})
+    code_employee = models.CharField(max_length=10, validators=[RegexValidator(r'^[A-Z0-9\-]{4,10}$')], unique=True, blank=False, null=False, error_messages={'unique': "Este código ya está registrado."})
     imagen_employee = models.ImageField(upload_to='employees/', blank=True, null=True, validators=[validar_extension, validar_tamano])

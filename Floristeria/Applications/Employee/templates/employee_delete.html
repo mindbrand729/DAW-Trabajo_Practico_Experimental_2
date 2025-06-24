@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/employee.css' %}">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">{% endblock %}
 {% block title %}Página Principal | Floristería{% endblock %}
 
 {% block content %}
-    <h1 class=>ELIMINAR TRABAJADOR</h1>
+    <h1>ELIMINAR TRABAJADOR</h1>
     
     <div class="container mt-4 text-center ">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-
+            <div class='container-delete'>
                 {% if employee.imagen_employee %}
                     <img class="imagen-empleado" src="{{ employee.imagen_employee.url }}" >
-                {% else %}
-                    <p>No hay imagen cargada.</p>
                 {% endif %}
-                <h3>ESTAS SEGURO DE ELIMINAR A: </h3>
-                <h3>{{ employee.name_employee }} {{ employee.surname_employee }}</h3>
-        
-        
+            </div>
+            <br /> 
+            <h3>ESTAS SEGURO DE ELIMINAR A: </h3>
+            <h3>{{ employee.name_employee }} {{ employee.surname_employee }}</h3>
             <div class="d-flex justify-content-around mt-4">
-                <button type="submit" class="btn btn-success">Aceptar</button>
-                <a href="{% url 'employee_list' %}" class="btn btn-danger">Cancelar</a>        
+                <button type="submit" class="button-delete">
+                    <span class="button__text">Eliminar</span>
+                    <span class="button__icon"><i class="fa-solid fa-trash"></i></span>
+                </button>
+                <button type="button" class="button-delete" onclick="location.href='{% url 'employee_list' %}'">
+                    <span class="button__text">Volver</span>
+                    <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
+                </button>
             </div>
         </form>
     </div>    
