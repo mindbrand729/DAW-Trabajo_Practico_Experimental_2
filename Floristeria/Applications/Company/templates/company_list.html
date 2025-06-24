@@ -8,7 +8,7 @@
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
 {% block content %}
-<main class="container_static">
+<div class="container_static">
     <h2>No se ha ingresado información de la empresa</h2>
     <button class="btn" onclick="location.href='{% url 'company_create' %}'">
         <div class="wrapper">
@@ -16,5 +16,5 @@
             {% include 'button.html' %}
         </div>
     </button>
-</main>
+</div>
 {% endblock %}

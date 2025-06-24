@@ -39,6 +39,7 @@
 
 .button__icon i {
   width: 20px;
+  transform: none !important;
   color: var(--main-color);
 }
 

@@ -1,54 +1,63 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/employee.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/employee.css' %}">
+<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
+{% endblock %}
 {% block title %}Página Principal | Floristería{% endblock %}
 
 {% block content %}
-    <h1>NUESTRO PERSONAL</h1>
-    <div class="container d-flex justify-content-end mt-4">
-        <a href="{% url 'employee_create' %}">+ AGREGAR TRABAJADOR</a>
-    </div> 
-    {% if employees %}
-        <div class="container mt-5">
-            <div class="row">
-                {% for empleado in employees %}
-                <!-- Cada tarjeta debe ir dentro de una columna -->
-                <div class="col-md-6 mb-4"> <!-- 2 tarjetas por fila -->
-                    <div class="card">
-                        <div class="row no-gutters" style="height: 200px;">
-                            <!-- Imagen a la izquierda -->
-                            <div class="col-md-4">
-                                {% if empleado.imagen_employee %}
-                                    <img class="card-img" src="{{ empleado.imagen_employee.url }}">
-                                {% else %}
-                                    <p>No hay imagen cargada.</p>
-                                {% endif %}
-                                
-                            </div>
+{% if employees %}<h1>NUESTRO PERSONAL</h1>{% endif %}
+<div class="container d-flex justify-content-end mt-4">
+    <button type="button" class="button-delete" onclick="location.href='{% url 'employee_create' %}'">
+        <span class="button__text">Agregar</span>
+        <span class="button__icon"><i class="fa-solid fa-plus"></i></span>
+    </button>
+</div> 
+{% if employees %}
+<div class="container mt-5">
+    <div class="row">
+        {% for empleado in employees %}
+        <!-- Cada tarjeta debe ir dentro de una columna -->
+        <div class="col-md-6 mb-4"> <!-- 2 tarjetas por fila -->
+            <div class="card">
+                <div class="row no-gutters" style="height: 200px;">
+                    <!-- Imagen a la izquierda -->
+                    <div class="col-md-4">
+                        {% if empleado.imagen_employee %}
+                            <img class="card-img" src="{{ empleado.imagen_employee.url }}">
+                        {% else %}
+                            <p>No hay imagen cargada.</p>
+                        {% endif %}
+                        
+                    </div>
 
-                            <!-- Contenido a la derecha -->
-                            <div class="col-md-8 d-flex flex-column justify-content-between">
-                                <!-- Íconos en la esquina superior derecha -->
-                                <div class="icons text-right p-2" style="position: absolute; top: 0; right: 0;">
-                                    <a href="{% url 'employee_update' empleado.pk %}" style="margin-right: 5px;">✏️</a>
-                                    <a href="{% url 'employee_delete' empleado.pk %}">🗑️</a>
-                                </div>
+                    <!-- Contenido a la derecha -->
+                    <div class="col-md-8 d-flex flex-column justify-content-between">
+                        <!-- Íconos en la esquina superior derecha -->
+                        <div class="icons text-right p-2" style="position: absolute; top: 0; right: 0;">
+                            <a href="{% url 'employee_detail' empleado.pk %}"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{% url 'employee_update' empleado.pk %}"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="{% url 'employee_delete' empleado.pk %}"><i class="fa-solid fa-trash"></i></a>
+                        </div>
 
-                                <!-- Cuerpo de la tarjeta -->
-                                <div class="card-body pt-4">
-                                    <h3 class="title">{{ empleado.name_employee }}<br>{{ empleado.surname_employee }}</h3>
-                                    <p class="data">{{ empleado.mail_employee }}</p>
-                                    <p class="data">{{ empleado.code_employee }}</p>
-                                    <p class="data">{{ empleado.card_employee }}</p>
-                                </div>
-                            </div>
+                        <!-- Cuerpo de la tarjeta -->
+                        <div class="card-body pt-4">
+                            <h3 class="title">{{ empleado.name_employee }}<br>{{ empleado.surname_employee }}</h3>
+                            <p class="data">{{ empleado.mail_employee }}</p>
+                            <p class="data">{{ empleado.code_employee }}</p>
+                            <p class="data">{{ empleado.card_employee }}</p>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
-    {% else %}
-        <h2 class="title text-center">AUN NO SE CUENTA CON TRABAJADORES</h2>
-    {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="container_static">
+    <h2>No hay Trabajadores Registrados</h2>
+</div>
+{% endif %}
 {% endblock %}

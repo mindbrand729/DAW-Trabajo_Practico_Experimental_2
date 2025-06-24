@@ -61,3 +61,32 @@ h1 {
     justify-content: flex-end;
     padding: 20px 100px 0px 0px;
 }
+
+.container_static {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    grid-template-rows: 0.2fr;
+    justify-content: center;
+    align-content: center;
+}
+
+.container_static h2 {
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+.container-delete img {
+    width: 50%;
+    height: 90%;
+    border: 1.5px solid #ccc;
+    border-radius: 5%;
+    padding: 0.25rem;
+    object-fit: cover;
+    background-color: #eee;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+}

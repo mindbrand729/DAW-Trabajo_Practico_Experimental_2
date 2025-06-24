@@ -9,7 +9,7 @@ class EmployeeListView(ListView):
     template_name = 'employee_list.html'
     context_object_name = 'employees'
 
-class EmployeeDetailView(ListView):
+class EmployeeDetailView(DetailView):
     model = Employee
     template_name = 'employee_detail.html'
     context_object_name = 'employee'
