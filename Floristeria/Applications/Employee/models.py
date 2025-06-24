@@ -18,9 +18,11 @@ def validar_tamano(value):
 
 # Create your models here.
 class Employee(models.Model):
-    name_employee = models.CharField(max_length=100, validators=[MinLengthValidator(3), RegexValidator(regex=r'^[A-Za-z0-9\s\.\-&]+$')], blank=False, null=False)
-    surname_employee = models.CharField(max_length=100, validators=[MinLengthValidator(3), RegexValidator(regex=r'^[A-Za-z0-9\s\.\-&]+$')], blank=False, null=False)
+    name_employee = models.CharField(max_length=100, validators=[MinLengthValidator(3), RegexValidator(regex=r"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s'-]+$"
+)], blank=False, null=False)
+    surname_employee = models.CharField(max_length=100, validators=[MinLengthValidator(3), RegexValidator(regex=r"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s'-]+$"
+)], blank=False, null=False)
     mail_employee = models.EmailField(blank=False, null=False, unique=True)
-    card_employee = models.CharField(max_length=20, validators=[RegexValidator(regex=r'^\d{13}$')], unique=True, blank=False, null=False)
-    code_employee = models.CharField(max_length=20, validators=[RegexValidator(r'^[A-Z0-9\-]{4,20}$')], unique=True, blank=False, null=False)
+    card_employee = models.CharField(max_length=10, validators=[RegexValidator(regex=r'^\d{10}$')], unique=True, blank=False, null=False)
+    code_employee = models.CharField(max_length=10, validators=[RegexValidator(r'^[A-Z0-9\-]{4,10}$')], unique=True, blank=False, null=False)
     imagen_employee = models.ImageField(upload_to='employees/', blank=True, null=True, validators=[validar_extension, validar_tamano])

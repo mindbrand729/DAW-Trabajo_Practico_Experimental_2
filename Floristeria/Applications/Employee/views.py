@@ -18,18 +18,18 @@ class EmployeeCreateView(CreateView):
     model = Employee
     template_name = 'employee_form.html'
     fields = '__all__'
-    success_url = reverse_lazy('company_list')
+    success_url = reverse_lazy('employee_list')
 
 class EmployeeUpdateView(UpdateView):
     model = Employee
-    template_name = 'employee_formup.html'
+    template_name = 'employee_form.html'
     fields = '__all__'
     context_object_name = 'employee'
-    success_url = reverse_lazy('company_list')
+    success_url = reverse_lazy('employee_list')
     
 
 class EmployeeDeleteView(DeleteView):
     model = Employee
     template_name = 'employee_delete.html'
     fields = '__all__'
-    success_url = reverse_lazy('company_list')  
+    success_url = reverse_lazy('employee_list')  
