@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/form.css' %}">
 <link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
 <link rel="stylesheet" href="{% static 'css/flower.css' %}">
+<link rel="stylesheet" href="{% static 'css/image.css' %}">
 {% endblock %}
 {% block title %}Página Nosotros | Floristería{% endblock %}
 
@@ -23,7 +24,7 @@
     {% endif %}
 </div>
 <div class="form-container">
-    <form class="form" id="company-form" method="post" enctype="multipart/form-data" data-is-edit="{% if company.pk %}true{% else %}false{% endif %}">
+    <form class="image-upload-form" method="post" enctype="multipart/form-data" data-is-edit="{% if company.pk %}true{% else %}false{% endif %}">
         {% csrf_token %}
         <div class="form-wrapper">
             <div class="form-column">
@@ -56,13 +57,13 @@
                 <div class="form-group">
                     <label for="file">Imagen</label>
                     <div class="actions">
-                        <label for="file" class="upload-btn">
+                        <label for="file" class="upload">
                             Elegir archivo
-                            <input hidden type="file" name="imagen_company" id="file" accept="image/*">
-                            <img id="preview" src="{% if company.pk %}{{ company.imagen_company.url }}{% endif %}" />
+                            <input hidden type="file" id="file" name="imagen_company" accept="image/*" class="file-input">
+                            <img class="preview" src="{% if company.pk %}{{ company.imagen_company.url }}{% endif %}" />
                         </label>
                     </div>
-                    <div id="error-msg" class="error"></div>
+                    <div class="error-msg"></div>
                 </div>
             </div>
         </div>
