@@ -10,12 +10,13 @@
 {% block content %}
 <h1>Página Nosotros</h1>
 <div class='container-button'>
-    <button class="btn" onclick="location.href='{% url 'company_update' company.pk %}'">
-        <span class="wrapper">
-            <p class="text">Modificar</p>
-            {% include 'button.html' %}
-        </span>
-    </button>
+    <div class="wrapper">
+        <button type="button" class="btn" onclick="location.href='{% url 'company_update' company.pk %}'">
+            <span class="button__text">Modificar</span>
+            <span class="button__icon"><i class="fa-solid fa-pen-to-square"></i></span>
+        </button>
+        {% include 'button.html' %}
+    </div>
 </div>
 <div class='container_dinamic'>
     <div class='item_1'>

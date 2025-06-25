@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/flower.css' %}">{% endblock %}
 {% block title %}Página Principal | Floristería{% endblock %}
 
 {% block content %}
@@ -18,14 +18,20 @@
             <h3>ESTAS SEGURO DE ELIMINAR A: </h3>
             <h3>{{ employee.name_employee }} {{ employee.surname_employee }}</h3>
             <div class="d-flex justify-content-around mt-4">
-                <button type="submit" class="button-delete">
-                    <span class="button__text">Eliminar</span>
-                    <span class="button__icon"><i class="fa-solid fa-trash"></i></span>
-                </button>
-                <button type="button" class="button-delete" onclick="location.href='{% url 'employee_list' %}'">
-                    <span class="button__text">Volver</span>
-                    <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
-                </button>
+                <div class="wrapper">
+                    <button type="submit" class="btn">
+                        <span class="button__text">Eliminar</span>
+                        <span class="button__icon"><i class="fa-solid fa-trash"></i></span>
+                    </button>
+                    {% include 'button.html' %}
+                </div>
+                <div class="wrapper">
+                    <button type="button" class="btn" onclick="location.href='{% url 'employee_list' %}'">
+                        <span class="button__text">Volver</span>
+                        <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
+                    </button>
+                    {% include 'button.html' %}
+                </div>
             </div>
         </form>
     </div>    

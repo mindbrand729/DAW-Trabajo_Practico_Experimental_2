@@ -1,6 +1,6 @@
 from django.db import models
 from Applications.Company.models import Company
-from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator, MinLengthValidator
+from django.core.validators import RegexValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
 import os
 

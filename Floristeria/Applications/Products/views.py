@@ -8,6 +8,7 @@ class ProductsListView(ListView):
     model = Products
     template_name = 'products_list.html'
     context_object_name = 'products'
+    ordering = ['id']
 
 class ProductsDetailView(DetailView):
     model = Products
