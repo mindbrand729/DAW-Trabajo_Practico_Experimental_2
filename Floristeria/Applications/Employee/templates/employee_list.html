@@ -2,17 +2,20 @@
 {% load static %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/employee.css' %}">
-<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
+<link rel="stylesheet" href="{% static 'css/flower.css' %}">
 {% endblock %}
 {% block title %}Página Principal | Floristería{% endblock %}
 
 {% block content %}
 {% if employees %}<h1>NUESTRO PERSONAL</h1>{% endif %}
 <div class="container-button">
-    <button type="button" class="button-delete" onclick="location.href='{% url 'employee_create' %}'">
-        <span class="button__text">Agregar</span>
-        <span class="button__icon"><i class="fa-solid fa-plus"></i></span>
-    </button>
+    <div class="wrapper">
+        <button type="button" class="btn" onclick="location.href='{% url 'employee_create' %}'">
+            <span class="button__text">Agregar</span>
+            <span class="button__icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        {% include 'button.html' %}
+    </div>
 </div> 
 {% if employees %}
 <div class="container mt-5">

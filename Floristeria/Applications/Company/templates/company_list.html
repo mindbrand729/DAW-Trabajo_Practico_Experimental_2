@@ -10,11 +10,12 @@
 {% block content %}
 <div class="container_static">
     <h2>No se ha ingresado información de la empresa</h2>
-    <button class="btn" onclick="location.href='{% url 'company_create' %}'">
-        <div class="wrapper">
-            <p class="text">Agregar</p>
-            {% include 'button.html' %}
-        </div>
-    </button>
+    <div class="wrapper">
+        <button type="button" class="btn" onclick="location.href='{% url 'company_create' %}'">
+            <span class="button__text">Agregar</span>
+            <span class="button__icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        {% include 'button.html' %}
+    </div>
 </div>
 {% endblock %}

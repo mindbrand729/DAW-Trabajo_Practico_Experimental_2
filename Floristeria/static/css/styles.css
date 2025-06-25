@@ -90,3 +90,12 @@ h1 {
     background-color: #eee;
     transition: transform 0.3s ease, box-shadow 0.5s ease;
 }
+
+.team-member .member-info .description {
+    display: -webkit-box;
+    line-clamp: 3;           /* propiedad estándar */
+    -webkit-line-clamp: 3;   /* propiedad con prefijo para WebKit */
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

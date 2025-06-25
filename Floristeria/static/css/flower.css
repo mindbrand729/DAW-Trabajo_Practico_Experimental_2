@@ -5,8 +5,55 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    border: 0px solid black;
+    border: none;
     cursor: pointer;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.button__text {
+    font-size: 17px;
+    color: #000;
+    padding: 4px 20px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn, .button__icon, .button__text {
+  transition: all 0.4s;
+}
+
+.btn .button__icon {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.6s ease;
+}
+
+.btn .button__icon i {
+    font-size: 1.2em;
+}
+
+.btn:hover .button__text {
+    color: transparent;
+}
+
+.btn:hover .button__icon {
+    left: 50%;
+    opacity: 1;
 }
 
 .wrapper {
@@ -19,21 +66,12 @@
     align-items: center;
 }
 
-.text {
-    font-size: 17px;
-    z-index: 1;
-    color: #000;
-    padding: 4px 12px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.7);
-    transition: all 0.5s ease;
-}
-
 .flower {
     display: grid;
     grid-template-columns: 1em 1em;
     position: absolute;
     transition: grid-template-columns 0.8s ease;
+    z-index: 1;
 }
 
 .flower1 {
@@ -43,7 +81,7 @@
 }
 
 .flower2 {
-    bottom: -5px;
+    bottom: -10px;
     left: 8px;
     transform: rotate(35deg);
 }
@@ -92,25 +130,25 @@
     transform: rotate(180deg);
 }
 
-.btn:hover .petal {
+.wrapper:hover .petal {
     background: linear-gradient(#0761d7, #93bdee);
     border: 0.5px solid #96b4ec;
 }
 
-.btn:hover .flower {
+.wrapper:hover .flower {
     grid-template-columns: 1.5em 1.5em;
 }
 
-.btn:hover .flower .petal {
+.wrapper:hover .flower .petal {
     width: 1.5em;
     height: 1.5em;
 }
 
-.btn:hover .text {
+.wrapper:hover .text {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.btn:hover div.flower1 {
+.wrapper:hover div.flower1 {
     animation: 15s linear 0s normal none infinite running flower1;
 }
 
@@ -124,7 +162,7 @@
     }
 }
 
-.btn:hover div.flower2 {
+.wrapper:hover div.flower2 {
     animation: 13s linear 1s normal none infinite running flower2;
 }
 
@@ -138,7 +176,7 @@
     }
 }
 
-.btn:hover div.flower3 {
+.wrapper:hover div.flower3 {
     animation: 16s linear 1s normal none infinite running flower3;
 }
 
@@ -152,7 +190,7 @@
     }
 }
 
-.btn:hover div.flower4 {
+.wrapper:hover div.flower4 {
     animation: 17s linear 1s normal none infinite running flower4;
 }
 
@@ -166,7 +204,7 @@
     }
 }
 
-.btn:hover div.flower5 {
+.wrapper:hover div.flower5 {
     animation: 20s linear 1s normal none infinite running flower5;
 }
 
@@ -180,7 +218,7 @@
     }
 }
 
-.btn:hover div.flower6 {
+.wrapper:hover div.flower6 {
     animation: 15s linear 1s normal none infinite running flower6;
 }
 

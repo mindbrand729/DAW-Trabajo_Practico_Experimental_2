@@ -8,6 +8,7 @@ class SupplierListView(ListView):
     model = Supplier
     template_name = 'supplier_list.html'
     context_object_name = 'supplier'
+    ordering = ['id']
 
 class SupplierDetailView(DetailView):
     model = Supplier
