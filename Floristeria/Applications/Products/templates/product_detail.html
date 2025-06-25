@@ -10,10 +10,10 @@
 <div class="container mt-4 justify-content-around">
     <div class="row  justify-content-center">
         <!-- Columna izquierda: Imagen actual -->
-        <div class="col-md-4 mt-3" style="max-width: 400px;">
+        <div class="col-md-4 mt-3">
             <div class="form-group">
                 {% if product.imagen_products %}
-                    <img src="{{ product.imagen_products.url }}" class="imagen-producto">
+                    <img src="{{ product.imagen_products.url }}" class="imagen-producto" style="max-width: 100%; height: auto; display: block;">
                 {% endif %}
               </div>
         </div>
@@ -30,7 +30,7 @@
                 <strong>Precio: </strong>{{ product.price_products }}
             </div>
             <div class="form-group">
-                <strong>Impuesto al Valor Agregado: </strong>{{ product.iva_products }}
+                <strong>Impuesto al Valor Agregado: </strong>{{ product.iva_products }}%
             </div>
             <div class="form-group">
                 <strong for="imagenProduct">Imagen: </strong>{{ product.imagen_products }}

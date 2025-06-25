@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
+{% endblock %}
 {% block title %}Página Productos | Floristería{% endblock %}
 
 {% block content %}
-{% if employees %}<h1>Nuestros Productos</h1>{% endif %}
+{% if products %}<h1>Nuestros Productos</h1>{% endif %}
 <div class="container-button">
     <button type="button" class="button-delete" onclick="location.href='{% url 'product_create' %}'">
         <span class="button__text">Agregar</span>
@@ -13,45 +16,29 @@
     </button>
 </div> 
 {% if products %}
-<div class="container mt-5">
-    <div class="row">
-        {% for product in products %}
-        <!-- Cada tarjeta debe ir dentro de una columna -->
-        <div class="col-md-6 mb-4"> <!-- 2 tarjetas por fila -->
-            <div class="card">
-                <div class="row no-gutters" style="height: 200px;">
-                    <!-- Imagen a la izquierda -->
-                    <div class="col-md-4">
-                        {% if product.imagen_products %}
-                            <img class="card-img" src="{{ product.imagen_products.url }}">
-                        {% else %}
-                            <p>No hay imagen cargada.</p>
-                        {% endif %}
-                        
-                    </div>
-
-                    <!-- Contenido a la derecha -->
-                    <div class="col-md-8 d-flex flex-column justify-content-between">
-                        <!-- Íconos en la esquina superior derecha -->
-                        <div class="icons text-right p-2" style="position: absolute; top: 0; right: 0;">
-                            <a href="{% url 'product_detail' product.pk %}"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{% url 'product_update' product.pk %}"><i class="fa-solid fa-pencil"></i></a>
-                            <a href="{% url 'product_delete' product.pk %}"><i class="fa-solid fa-trash"></i></a>
-                        </div>
-
-                        <!-- Cuerpo de la tarjeta -->
-                        <div class="card-body pt-4">
-                            <h3 class="title">{{ product.name_products }}</h3>
-                            <p class="data">{{ product.description_products }}</p>
-                            <p class="data">{{ product.price_products }}</p>
-                            <p class="data">{{ product.iva_products }}</p>
-                        </div>
+<div class="team-grid">
+    {% for product in products %}
+            <div class="team-member">
+                <div class="member-image">
+                    {% if product.imagen_products %}
+                        <img class="card-img" src="{{ product.imagen_products.url }}">
+                    {% else %}
+                        <p>No hay imagen cargada.</p>
+                    {% endif %}
+                </div>
+                <div class="member-info">
+                    <h3>{{ product.name_products }}</h3>
+                    <h4>{{ product.price_products }}</h4>
+                    <p>{{ product.description_products }}</p>
+                    <p>{{ product.iva_products }}</p>
+                    <div class="card-actions">
+                        <a href="{% url 'product_detail' product.pk %}"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{% url 'product_update' product.pk %}"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="{% url 'product_delete' product.pk %}"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% endfor %}
 </div>
 {% else %}
 <div class="container_static">
