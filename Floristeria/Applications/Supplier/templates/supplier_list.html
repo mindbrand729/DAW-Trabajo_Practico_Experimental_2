@@ -16,26 +16,28 @@
     </button>
 </div>
 {% if supplier %}
-<div class="supplier-grid">
-    {% for sup in supplier %}
-        <div class="supplier-card">
-            <h2 class="supplier-name">{{ sup.name_supplier }}</h2>
-            <p><strong>Correo:</strong> {{ sup.mail_supplier }}</p>
-            <p><strong>Teléfono:</strong> {{ sup.phone_supplier }}</p>
-            <p><strong>País:</strong> {{ sup.country_supplier }}</p>
-            <div class="supplier-actions">
-                <a href="{% url 'supplier_detail' sup.pk %}" class="action-button delete-button" title="Editar">
-                    <i class="fa-solid fa-eye"></i>
-                </a>
-                <a href="{% url 'supplier_update' sup.pk %}" class="action-button edit-button" title="Editar">
-                    <i class="fa-solid fa-pencil"></i>
-                </a>
-                <a href="{% url 'supplier_delete' sup.pk %}" class="action-button delete-button" title="Eliminar">
-                    <i class="fa-solid fa-trash"></i>
-                </a>
+<div class="container mt-5">
+    <div class="supplier-grid">
+        {% for sup in supplier %}
+            <div class="supplier-card">
+                <h2 class="supplier-name">{{ sup.name_supplier }}</h2>
+                <p><strong>Correo:</strong> {{ sup.mail_supplier }}</p>
+                <p><strong>Teléfono:</strong> {{ sup.phone_supplier }}</p>
+                <p><strong>País:</strong> {{ sup.country_supplier }}</p>
+                <div class="supplier-actions">
+                    <a href="{% url 'supplier_detail' sup.pk %}" class="action-button delete-button" title="Editar">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a href="{% url 'supplier_update' sup.pk %}" class="action-button edit-button" title="Editar">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    <a href="{% url 'supplier_delete' sup.pk %}" class="action-button delete-button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% else %}
 <div class="container_static">

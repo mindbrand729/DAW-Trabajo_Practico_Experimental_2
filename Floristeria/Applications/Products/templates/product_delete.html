@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">{% endblock %}
+{% block title %}Página Productos | Floristería{% endblock %}
+
+{% block content %}
+    <h1 class=>Eliminar Informacion del Producto</h1>
+    <div class="container mt-4 text-center ">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class='container-delete'>
+                {% if products.imagen_products %}
+                    <img src="{{ products.imagen_products.url }}" >
+                {% else %}
+                    <p>H</p>
+                {% endif %}
+            </div>
+            <br /> 
+            <h3>¿Estás seguro que quieres eliminar este producto?</h3>
+            <h3>{{ products.name_products }}</h3> 
+            <div class="d-flex justify-content-around mt-4">
+                <button type="submit" class="button-delete">
+                    <span class="button__text">Eliminar</span>
+                    <span class="button__icon"><i class="fa-solid fa-trash"></i></span>
+                </button>
+                <button type="button" class="button-delete" onclick="location.href='{% url 'products_list' %}'">
+                    <span class="button__text">Volver</span>
+                    <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
