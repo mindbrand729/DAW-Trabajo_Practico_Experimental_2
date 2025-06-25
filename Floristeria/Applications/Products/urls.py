@@ -3,8 +3,8 @@ from .views import ProductsListView, ProductsDetailView, ProductsCreateView, Pro
 
 urlpatterns = [
     path('', ProductsListView.as_view(), name='products_list'),
-    path('<int:pk>/', ProductsDetailView.as_view(), name='products_detail'),
-    path('create/', ProductsCreateView.as_view(), name='products_create'),
-    path('update/<int:pk>/', ProductsUpdateView.as_view(), name='products_update'),
-    path('delete/<int:pk>/', ProductsDeleteView.as_view(), name='products_delete'),
+    path('<int:pk>/', ProductsDetailView.as_view(), name='product_detail'),
+    path('create/', ProductsCreateView.as_view(), name='product_create'),
+    path('update/<int:pk>/', ProductsUpdateView.as_view(), name='product_update'),
+    path('delete/<int:pk>/', ProductsDeleteView.as_view(), name='product_delete'),
 ]

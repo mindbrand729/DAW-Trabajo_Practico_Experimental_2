@@ -1,9 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+<link rel="stylesheet" href="{% static 'css/buttonD.css' %}">
+{% endblock %}
 {% block title %}Página Productos | Floristería{% endblock %}
 
 {% block content %}
-<h1>Página Productos</h1>
+{% if products %}<h1>Nuestros Productos</h1>{% endif %}
+<div class="container-button">
+    <button type="button" class="button-delete" onclick="location.href='{% url 'product_create' %}'">
+        <span class="button__text">Agregar</span>
+        <span class="button__icon"><i class="fa-solid fa-plus"></i></span>
+    </button>
+</div> 
+{% if products %}
+<div class="team-grid">
+    {% for product in products %}
+            <div class="team-member">
+                <div class="member-image">
+                    {% if product.imagen_products %}
+                        <img class="card-img" src="{{ product.imagen_products.url }}">
+                    {% else %}
+                        <p>No hay imagen cargada.</p>
+                    {% endif %}
+                </div>
+                <div class="member-info">
+                    <h3>{{ product.name_products }}</h3>
+                    <h4>{{ product.price_products }}</h4>
+                    <p>{{ product.description_products }}</p>
+                    <p>{{ product.iva_products }}</p>
+                    <div class="card-actions">
+                        <a href="{% url 'product_detail' product.pk %}"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{% url 'product_update' product.pk %}"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="{% url 'product_delete' product.pk %}"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="container_static">
+    <h2>No hay Productos Registrados</h2>
+</div>
+{% endif %}
 {% endblock %}

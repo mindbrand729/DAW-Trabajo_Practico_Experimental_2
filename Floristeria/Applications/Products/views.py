@@ -11,22 +11,24 @@ class ProductsListView(ListView):
 
 class ProductsDetailView(DetailView):
     model = Products
-    template_name = 'products_detail.html'
-    context_object_name = 'products'
+    template_name = 'product_detail.html'
+    context_object_name = 'product'
 
 class ProductsCreateView(CreateView):
     model = Products
-    template_name = 'products_form.html'
+    template_name = 'product_form.html'
     fields = '__all__'
     success_url = reverse_lazy('products_list')
 
 class ProductsUpdateView(UpdateView):
     model = Products
-    template_name = 'products_form.html'
+    template_name = 'product_form.html'
     fields = '__all__'
+    context_object_name = 'product'
     success_url = reverse_lazy('products_list')
 
 class ProductsDeleteView(DeleteView):
     model = Products
-    template_name = 'products_delete.html'
+    template_name = 'product_delete.html'
+    fields = '__all__'
     success_url = reverse_lazy('products_list')  
