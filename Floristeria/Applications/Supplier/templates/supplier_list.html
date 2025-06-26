@@ -28,7 +28,7 @@
                 <p><strong>Teléfono:</strong> {{ sup.phone_supplier }}</p>
                 <p><strong>País:</strong> {{ sup.country_supplier }}</p>
                 <div class="supplier-actions">
-                    <a href="{% url 'supplier_detail' sup.pk %}" class="action-button delete-button" title="Editar">
+                    <a href="{% url 'supplier_detail' sup.pk %}" class="action-button view-button" title="Editar">
                         <i class="fa-solid fa-eye"></i>
                     </a>
                     <a href="{% url 'supplier_update' sup.pk %}" class="action-button edit-button" title="Editar">

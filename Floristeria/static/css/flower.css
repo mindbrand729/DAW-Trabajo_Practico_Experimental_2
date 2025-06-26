@@ -15,7 +15,6 @@
 
 .button__text {
     font-size: 17px;
-    color: #000;
     padding: 4px 20px;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.7);
@@ -26,7 +25,7 @@
 }
 
 .btn, .button__icon, .button__text {
-  transition: all 0.4s;
+    transition: all 0.4s;
 }
 
 .btn .button__icon {
@@ -112,8 +111,8 @@
     height: 1em;
     width: 1em;
     border-radius: 40% 70% / 7% 90%;
-    background: linear-gradient(#07a6d7, #93e0ee);
-    border: 0.5px solid #96d1ec;
+    background: linear-gradient(#F88379, #FFF8F0);
+    border: 0.5px solid #A8C3A2;
     z-index: 0;
     transition: width 0.8s ease, height 0.8s ease;
 }
@@ -131,8 +130,8 @@
 }
 
 .wrapper:hover .petal {
-    background: linear-gradient(#0761d7, #93bdee);
-    border: 0.5px solid #96b4ec;
+    background: linear-gradient(#F76C5E, #FFD97D);
+    border: 0.5px solid #E5B750;
 }
 
 .wrapper:hover .flower {

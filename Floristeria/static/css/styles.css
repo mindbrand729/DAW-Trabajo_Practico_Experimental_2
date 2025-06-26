@@ -1,9 +1,13 @@
 :root {
-    --color-primary: #FFABAB;    /* Rosa claro */
-    --color-secondary: #FFDAAB;  /* Melocotón claro */
-    --color-accent: #DDFFAB;     /* Verde limón */
-    --color-light: #ABE4FF;      /* Azul claro */
-    --color-dark: #D9ABFF;       /* Lavanda */
+    /* Colores principales */
+    --color-principal: #F88379;      /* Rosa coral suave */
+    --color-secundario: #A8C3A2;     /* Verde salvia */
+    --color-fondo: #FFF8F0;          /* Marfil claro */
+    --color-acento: #FFD97D;         /* Amarillo dorado */
+
+    /* Neutros */
+    --color-texto: #333333;          /* Gris antracita */
+    --color-borde-suave: #DDDDDD;    /* Gris claro */
 }
 
 * {
@@ -15,13 +19,14 @@
 
 body {
     position: relative;
-    background-color: #FFF;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Montserrat', Arial, sans-serif;
-    color: #333;
     padding-top: 150px;
+    font-family: 'Lora', serif;
 }
 
 html, body {
@@ -38,13 +43,14 @@ main {
 h1 {
     text-align: center;
     margin: 20px 50px;
-    color: #333;
     text-transform: uppercase;
     padding: 15px;
     border-radius: 10px;
-    font-size: 28px;
     letter-spacing: 2px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-size: 2em;
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--color-principal), var(--color-acento));
 }
 
 .logo img,
@@ -73,7 +79,6 @@ h1 {
 
 .container_static h2 {
     text-align: center;
-    color: #333;
     text-transform: uppercase;
     padding: 8px;
     border-radius: 10px;
@@ -83,11 +88,10 @@ h1 {
 .container-delete img {
     width: 50%;
     height: 90%;
-    border: 1.5px solid #ccc;
+    border: 1.5px solid var(--color-borde-suave);
     border-radius: 5%;
     padding: 0.25rem;
     object-fit: cover;
-    background-color: #eee;
     transition: transform 0.3s ease, box-shadow 0.5s ease;
 }
 
@@ -98,4 +102,15 @@ h1 {
     -webkit-box-orient: vertical;  
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+h1, .logo {
+    font-family: 'Playfair Display', serif;
+}
+
+.title {
+    font-size: 20px;             /* Tamaño de fuente */
+    font-weight: bold;           /* Negrita */
+    letter-spacing: 0.5px;       /* Poco espacio entre letras */
+    text-transform: capitalize;  /* Primera letra en mayúscula */
 }
