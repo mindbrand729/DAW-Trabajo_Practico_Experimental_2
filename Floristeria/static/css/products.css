@@ -9,24 +9,35 @@
 
 .team-member {
     position: relative;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-borde-suave);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 1em;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.member-info .price {
+    color: var(--color-acento); /* Amarillo dorado */
+    font-weight: bold;
 }
 
 .card-actions {
-  position: absolute;
-  bottom: 15px;  /* separación desde abajo */
-  right: 15px;   /* separación desde la derecha */
-  display: flex;
-  gap: 10px; /* espacio entre iconos */
+    position: absolute;
+    bottom: 15px;  /* separación desde abajo */
+    right: 15px;   /* separación desde la derecha */
+    display: flex;
+    gap: 10px; /* espacio entre iconos */
+}
+
+.card-actions i {
+    color: var(--color-secundario);
 }
 
 .team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
 }
 
 .member-image {
@@ -53,20 +64,21 @@
 .member-info h3 {
     font-size: 1.5rem;
     margin: 0 0 10px 0;
-    color: #333;
+    color: var(--color-principal);
+    font-weight: bold;
 }
 
 .member-info h4 {
     font-size: 1rem;
     font-weight: 600;
-    color: #666;
+    color: var(--color-principal);
     margin: 0 0 15px 0;
 }
 
 .member-info p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #777;
+    color: var(--color-texto);
 }
 
 /* Diseño responsivo */
