@@ -4,36 +4,34 @@
 {% block title %}Página Productos | Floristería{% endblock %}
 
 {% block content %}
-    <h1 class=>Eliminar Informacion del Producto</h1>
-    <div class="container mt-4 text-center ">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class='container-delete'>
-                {% if products.imagen_products %}
-                    <img src="{{ products.imagen_products.url }}" >
-                {% else %}
-                    <p>H</p>
-                {% endif %}
+<h1>Eliminar Información del Producto</h1>
+<div class="container mt-4 text-center ">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class='container-delete'>
+            {% if products.imagen_products %}
+                <img src="{{ products.imagen_products.url }}" >
+            {% endif %}
+        </div>
+        <br /> 
+        <h3>¿Estás seguro que quieres eliminar este producto?</h3>
+        <h3>{{ products.name_products }}</h3> 
+        <div class="d-flex justify-content-around mt-4">
+            <div class="wrapper">
+                <button type="submit" class="btn">
+                    <span class="button__text">Eliminar</span>
+                    <span class="button__icon"><i class="fa-solid fa-trash"></i></span>
+                </button>
+                {% include 'button.html' %}
             </div>
-            <br /> 
-            <h3>¿Estás seguro que quieres eliminar este producto?</h3>
-            <h3>{{ products.name_products }}</h3> 
-            <div class="d-flex justify-content-around mt-4">
-                <div class="wrapper">
-                    <button type="submit" class="btn">
-                        <span class="button__text">Eliminar</span>
-                        <span class="button__icon"><i class="fa-solid fa-trash"></i></span>
-                    </button>
-                    {% include 'button.html' %}
-                </div>
-                <div class="wrapper">
-                    <button type="button" class="btn" onclick="location.href='{% url 'products_list' %}'">
-                        <span class="button__text">Volver</span>
-                        <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
-                    </button>
-                    {% include 'button.html' %}
-                </div>
+            <div class="wrapper">
+                <button type="button" class="btn" onclick="location.href='{% url 'products_list' %}'">
+                    <span class="button__text">Volver</span>
+                    <span class="button__icon"><i class="fa-solid fa-rotate-left"></i></span>
+                </button>
+                {% include 'button.html' %}
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

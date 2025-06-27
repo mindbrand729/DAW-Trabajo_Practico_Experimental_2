@@ -6,4 +6,33 @@
 
 {% block content %}
 <h1>Página Principal</h1>
+<div class="grid-top">
+    <section class="carousel" id="carousel-1" data-images='["{% static "img/1.jpg" %}", "{% static "img/2.jpg" %}", "{% static "img/3.jpg" %}", "{% static "img/4.jpg" %}"]'>
+        <div class="blur-background"></div> 
+        <div class="carousel-track"></div>
+        <button class="prevBtn">&#10094;</button>
+        <button class="nextBtn">&#10095;</button>
+    </section>
+    <div class="container-box">
+        <h3>DESCRIPCIÓN DE LA EMPRESA</h3>
+        <p>
+            Barcelle es una floristería especializada en el diseño, elaboración y entrega de arreglos florales únicos y personalizados. Fundada con el propósito de fusionar el arte, la naturaleza y la emoción, Barcelle se ha consolidado como una marca que representa elegancia, calidad y compromiso con el cliente.<br />Cada creación de Barcelle está cuidadosamente pensada para transmitir sentimientos y adaptarse al estilo y necesidad del cliente.<br />Nuestra empresa se destaca no solo por su creatividad y diseño, sino también por su atención cálida y cercana, su responsabilidad ecológica y su búsqueda constante por innovar en el mercado floral.
+        </p>
+    </div>
+</div>
+<div class="grid-bottom">
+    <div class="container-box">
+        <h3>HISTORIA DE LA EMPRESA</h3>
+        <p>
+            La historia de Barcelle comenzó con una pasión: el amor por las flores y su poder de transformar espacios, emociones y momentos. Todo nació a partir de una pequeña mesa de trabajo en casa, donde su fundadora, inspirada por los jardines de su infancia y por el deseo de transmitir sentimientos a través del arte floral, comenzó a crear arreglos para familiares y amigos.<br />A lo largo del tiempo, Barcelle ha crecido, incorporando nuevas técnicas, tendencias y servicios como decoración para eventos, ambientación de espacios y entregas a domicilio.<br />Sin embargo, lo que nunca ha cambiado es su esencia: el deseo de conectar a las personas a través de la belleza natural.
+        </p>
+    </div>
+    <section class="carousel" id="carousel-2" data-images='["{% static "img/5.jpg" %}", "{% static "img/6.jpg" %}", "{% static "img/7.jpg" %}", "{% static "img/8.jpg" %}"]'>
+        <div class="blur-background"></div> 
+        <div class="carousel-track"></div>
+        <button class="prevBtn">&#10094;</button>
+        <button class="nextBtn">&#10095;</button>
+    </section>
+</div>
+{% block extra_js %}<script src="{% static 'js/carrusel.js' %}"></script>{% endblock %}
 {% endblock %}

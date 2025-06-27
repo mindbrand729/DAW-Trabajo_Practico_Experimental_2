@@ -1,5 +1,4 @@
 from django.db import models
-from Applications.Supplier.models import Supplier
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
 import os

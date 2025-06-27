@@ -5,10 +5,10 @@
 <link rel="stylesheet" href="{% static 'css/image.css' %}">
 <link rel="stylesheet" href="{% static 'css/flower.css' %}">
 {% endblock %}
-{% block title %}Página Principal | Floristería{% endblock %}
+{% block title %}Página Trabajadores | Floristería{% endblock %}
 
 {% block content %}
-<h1>{% if employee.pk %}ACTUALIZAR DATOS DEL TRABAJADOR{% else %}AGREGAR TRABAJADOR{% endif %}</h1>
+<h1>{% if employee.pk %}Actualizar{% else %}Agregar{% endif %} Datos del Trabajador</h1>
 <div class='container-button'>
     <div class="wrapper">
         <button type="button" class="btn" onclick="location.href='{% url 'employee_list' %}'">

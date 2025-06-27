@@ -6,10 +6,10 @@
 <link rel="stylesheet" href="{% static 'css/flower.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock %}
-{% block title %}{% if form.instance.pk %}Editar Proveedor{% else %}Agregar Proveedor{% endif %} | Floristería{% endblock %}
+{% block title %}Pagina Proveedor | Floristería{% endblock %}
 
 {% block content %}
-<h1>{% if form.instance.pk %}Editar Proveedor{% else %}Agregar Proveedor{% endif %}</h1>
+<h1>{% if supplier.pk %}Editar{% else %}Agregar{% endif %} Datos del Proveedor</h1>
 <div class='container-button'>
     <div class="wrapper">
         <button type="button" class="btn" onclick="location.href='{% url 'supplier_list' %}'">

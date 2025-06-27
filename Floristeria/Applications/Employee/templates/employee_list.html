@@ -4,10 +4,10 @@
 <link rel="stylesheet" href="{% static 'css/employee.css' %}">
 <link rel="stylesheet" href="{% static 'css/flower.css' %}">
 {% endblock %}
-{% block title %}Página Principal | Floristería{% endblock %}
+{% block title %}Página Trabajadores | Floristería{% endblock %}
 
 {% block content %}
-{% if employees %}<h1>NUESTRO PERSONAL</h1>{% endif %}
+{% if employees %}<h1>Nuestro Trabajadores</h1>{% endif %}
 <div class="container-button">
     <div class="wrapper">
         <button type="button" class="btn" onclick="location.href='{% url 'employee_create' %}'">
