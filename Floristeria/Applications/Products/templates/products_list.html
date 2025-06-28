@@ -31,10 +31,10 @@
                     {% endif %}
                 </div>
                 <div class="member-info">
-                    <h3>{{ product.name_products }}</h3>
-                    <h4 class='price'>{{ product.price_products }}</h4>
-                    <p class="description">{{ product.description_products }}</p>
-                    <p>{{ product.iva_products }}%</p>
+                    <h3><strong>{{ product.name_products }}</strong></h3>
+                    <h4 class='price'><strong>Precio:</strong> $ {{ product.price_products }}</h4>
+                    <p class="description"><strong>Descripción:</strong> {{ product.description_products }}</p>
+                    <p><strong>IVA:</strong> {{ product.iva_products }}%</p>
                     <div class="card-actions">
                         <a href="{% url 'product_detail' product.pk %}"><i class="fa-solid fa-eye"></i></a>
                         <a href="{% url 'product_update' product.pk %}"><i class="fa-solid fa-pencil"></i></a>
