@@ -29,6 +29,11 @@ En Windows abre la terminal (PowerShell, CMD o terminal de VS Code) y ejecute:
 
     git clone https://github.com/mindbrand729/DAW-Trabajo_Practico_Experimental_2.git
 
+# Entrar el la carpeta
+Una vez creada la carpeta, ejecuta:
+
+    cd .\DAW-Trabajo_Practico_Experimental_2
+
 # Crear y activar el entorno virtual
 Crear el entorno virtual
 
@@ -113,6 +118,12 @@ En settings.py, la configuración de base de datos debe verse así:
 # Realizar migraciones y levantar el servidor
 Después de tener todo listo:
 
-    python manage.py makemigrations
-    python manage.py migrate
-    python manage.py runserver
+    python .\Floristeria\manage.py makemigrations
+    python .\Floristeria\manage.py migrate
+    python .\Floristeria\manage.py runserver
+
+O en una sola linea:
+
+    python .\Floristeria\manage.py makemigrations; python .\Floristeria\manage.py migrate; python .\Floristeria\manage.py runserver
+
+
