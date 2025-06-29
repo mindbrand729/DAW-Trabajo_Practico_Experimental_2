@@ -54,7 +54,7 @@
 
         <div class="form-group">
           <label for="codEmployee">Codigo del Empleado : </label>
-          <input type="text" class="form-control" id="codigo_empleado" placeholder="Ingrese codigo empleado" name="code_employee" pattern="^[A-Za-z0-9\-]{4,10}$" maxlength="10" minlength="4" value="{{ employee.code_employee }}" required="">
+          <input type="text" class="form-control" id="codigo_empleado" placeholder="Ingrese codigo empleado" name="code_employee" pattern="^[A-Z0-9\-]{4,10}$" maxlength="10" minlength="4" value="{{ employee.code_employee }}" required="">
           {% if form.code_employee.errors %}
             <div class="text-danger">
               {{ form.code_employee.errors.0 }}
