@@ -35,7 +35,7 @@
             <div class="form-column">
                 <div class="form-group">
                     <label for="name">Nombre de la Empresa</label>
-                    <input type="text" id="name" name="name_company" pattern="^(?!\d+$).{3,100}$" maxlength="100" minlength="3" value="{{ company.name_company }}" placeholder="Ej: Borcelle" required="">
+                    <input type="text" id="name" name="name_company" pattern="^[^0-9]{3,100}$" maxlength="100" minlength="3" value="{{ company.name_company }}" placeholder="Ej: Borcelle" required="">
                 </div>
                 <div class="form-group">
                     <label for="address">Dirección</label>

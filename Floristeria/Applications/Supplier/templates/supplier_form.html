@@ -26,7 +26,7 @@
             <div class="form-column">
                 <div class="form-group">
                     <label for="name">Nombre del Proveedor:</label>
-                    <input type="text" id="name" name="name_supplier" pattern="^(?!\d+$).{3,100}$" maxlength="100" minlength="3" value="{{ supplier.name_supplier }}" placeholder="..." required="">
+                    <input type="text" id="name" name="name_supplier" pattern="^[^0-9]{3,100}$" maxlength="100" minlength="3" value="{{ supplier.name_supplier }}" placeholder="..." required="">
                 </div>
                 <div class="form-group">
                     <label for="phone_supplier">Teléfono:</label>

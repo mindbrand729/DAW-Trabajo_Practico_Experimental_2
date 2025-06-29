@@ -26,7 +26,7 @@
             <div class="form-column">
                 <div class="form-group">
                     <label for="name">Nombre del Producto:</label>
-                    <input type="text" id="name" name="name_products" pattern="^(?!\d+$).{3,100}$" maxlength="100" minlength="3" value="{{ product.name_products }}" placeholder="..." required="">
+                    <input type="text" id="name" name="name_products" pattern="^[^0-9]{3,100}$" maxlength="100" minlength="3" value="{{ product.name_products }}" placeholder="..." required="">
                 </div>
                 <div class="form-group">
                     <label for="price">Precio del Producto:</label>
